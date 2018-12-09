@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="../demo.xsl"?>
+<root>
+    <env>
+        <domain>local</domain>
+    </env>
+    <login>
+        <uid>git/wurui</uid>
+        <nick>wurui</nick>
+    </login>
+    <p>
+        <title>meeting-info demo page</title>
+        <desc>this is deme page</desc>
+        <owner>openxsl</owner>
+        <icon>//oxm1.cc/img/app_default.png</icon>
+    </p>
+    <data>
+        <user-event>
+            <i>
+                <uid>git/wurui</uid>
+                <createtime>1544320800000</createtime>
+                <spot>给力轰趴馆</spot>
+                <title>一起度周末</title>
+                <content>吃零食，打牌，玩桌游</content>
+                <notice>勿带宠物</notice>
+                <scale>5</scale>
+                <starttime>1544407200000</starttime>
+                <endtime>1544450400000</endtime>
+            </i>
+        </user-event>
+    </data>
+</root>
