@@ -24,8 +24,16 @@
                 <content>吃零食，打牌，玩桌游</content>
                 <notice>勿带宠物</notice>
                 <scale>5</scale>
-                <starttime>1544407200000</starttime>
+                <starttime>
+                    <y>2018</y>
+                    <M>12</M>
+                    <d>22</d>
+                    <H>12</H>
+                    <m>0</m>
+                    
+                </starttime>
                 <endtime>1544450400000</endtime>
+                <organizer>Rio</organizer>
             </i>
         </user-event>
     </data>

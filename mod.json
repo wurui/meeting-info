@@ -2,9 +2,10 @@
   "RULE_VERSION":"20180724",
   "name": "meeting-info",
   "apiDependencies": [
-  {
-    "name": "user-event"
-  }
-]
+	  {
+	    "name": "user-event",
+	    "selector":"_id"
+	  }
+	]
 }
 

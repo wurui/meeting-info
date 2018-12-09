@@ -2,9 +2,62 @@
     <xsl:template match="/root" name="wurui.meeting-info">
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-meeting-info" ox-mod="meeting-info">
-            <h1>
-                This is mod meeting-info;
-            </h1>
+        	<xsl:for-each select="data/user-event/i[1]">
+	        	<section>
+		        	
+		            <table>
+		            	<tbody>
+		            		<tr>
+		            			<th>主题</th>
+		            			<td>
+		            				<xsl:value-of select="title"/>
+		            			</td>
+		            		</tr>
+		            		<tr>
+		            			<th>时间</th>
+		            			<td>
+		            				<xsl:value-of select="starttime/y"/>-<xsl:value-of select="starttime/M"/>-<xsl:value-of select="starttime/d"/>&#160;<xsl:value-of select="starttime/H"/>:<xsl:value-of select="format-number(starttime/m,'00')"/>
+		            			</td>
+		            		</tr>
+		            		<tr>
+		            			<th>地点</th>
+		            			<td>
+		            				<xsl:value-of select="spot"/>
+		            			</td>
+		            		</tr>
+		            		<tr>
+		            			<th>人数</th>
+		            			<td>
+		            				<xsl:value-of select="scale"/>
+		            			</td>
+		            		</tr>
+		            		<xsl:if test="organizer and organizer != ''">
+			            		<tr>
+			            			<th>组织者</th>
+			            			<td>
+			            				<xsl:value-of select="organizer"/>
+			            			</td>
+			            		</tr>
+			            	</xsl:if>
+		            		
+		            	</tbody>
+		            </table>
+			        
+	            </section>
+	            <section>
+		            <h4 class="section-title">聚会内容</h4>
+		            <div>
+		            	<xsl:value-of select="content" disable-output-escaping="yes" />
+		            </div>
+	            </section>
+	            <section>
+		            <h4 class="section-title">注意事项</h4>
+		            <div>
+		            	<xsl:value-of select="notice" disable-output-escaping="yes" />
+		            </div>
+		        </section>
+	        </xsl:for-each>
+	        
         </div>
     </xsl:template>
 </xsl:stylesheet>
