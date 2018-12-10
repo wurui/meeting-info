@@ -3,7 +3,7 @@
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-meeting-info" ox-mod="meeting-info">
         	<xsl:variable name="login_uid" select="login/uid"/>
-        	<xsl:variable name="apply" select="data/user-apply/i[1]"/>
+        	<xsl:variable name="applylist" select="data/user-apply/i"/>
         	
 
         	<xsl:if test="count(data/user-event/i) = 0">
@@ -11,6 +11,8 @@
         	</xsl:if>
 
         	<xsl:for-each select="data/user-event/i[1]">
+        		<xsl:variable name="_id" select="_id"/>
+        		<xsl:variable name="apply" select="$applylist[target = $_id ]"/>
 	        	<section>
 		        	
 		            <table>

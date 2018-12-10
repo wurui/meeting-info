@@ -38,7 +38,9 @@
             </i>
         </user-event>
         <user-apply>
-            <i></i>
+            <i>
+                <target>123</target>
+            </i>
         </user-apply>
     </data>
 </root>
