@@ -4,7 +4,13 @@
   "apiDependencies": [
 	  {
 	    "name": "user-event",
-	    "selector":"_id"
+	    "selector":"_id",
+	    "LINK":[
+	    	{
+	    		"name":"list",
+	    		"title":"删除后跳转地址"
+	    	}
+	    ]
 	  }
 	]
 }

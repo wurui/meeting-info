@@ -2,6 +2,10 @@
     <xsl:template match="/root" name="wurui.meeting-info">
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-meeting-info" ox-mod="meeting-info">
+        	<xsl:variable name="login_uid" select="login/uid"/>
+        	<xsl:if test="count(data/user-event/i) = 0">
+        		<div class="nodata">暂无数据</div>
+        	</xsl:if>
         	<xsl:for-each select="data/user-event/i[1]">
 	        	<section>
 		        	
@@ -56,6 +60,11 @@
 		            	<xsl:value-of select="notice" disable-output-escaping="yes" />
 		            </div>
 		        </section>
+		        <xsl:if test=" uid = $login_uid">
+			        <section class="center">
+			        	<button class="bt-del J_del" data-id="{_id}">删除聚会</button>
+			        </section>
+			    </xsl:if>
 	        </xsl:for-each>
 	        
         </div>
