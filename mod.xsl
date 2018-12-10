@@ -3,9 +3,13 @@
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-meeting-info" ox-mod="meeting-info">
         	<xsl:variable name="login_uid" select="login/uid"/>
+        	<xsl:variable name="apply" select="data/user-apply/i[1]"/>
+        	
+
         	<xsl:if test="count(data/user-event/i) = 0">
         		<div class="nodata">暂无数据</div>
         	</xsl:if>
+
         	<xsl:for-each select="data/user-event/i[1]">
 	        	<section>
 		        	
@@ -60,11 +64,35 @@
 		            	<xsl:value-of select="notice" disable-output-escaping="yes" />
 		            </div>
 		        </section>
-		        <xsl:if test=" uid = $login_uid">
-			        <section class="center">
-			        	<button class="bt-del J_del" data-id="{_id}">删除聚会</button>
-			        </section>
-			    </xsl:if>
+		        <xsl:choose>
+		        	<xsl:when test="uid = $login_uid">
+		        		<section class="center">
+				        	<button class="bt-del J_del" data-id="{_id}">删除聚会</button>
+				        </section>
+		        	</xsl:when>
+		        	<xsl:when test="$login_uid !=''">
+		        		<xsl:choose>
+				        	
+				        	<xsl:when test="$apply ">
+				        		<section class="center">
+						        	<button class="bt-cancel J_cancel" data-id="{$apply/_id}">取消参加</button>
+						        </section>
+				        	</xsl:when>
+				        	<xsl:otherwise>
+				        		<section class="center">
+						        	<button class="bt-apply J_apply" data-title="{title}" data-id="{_id}">参加聚会</button>
+						        </section>
+				        		
+				        	</xsl:otherwise>
+				        </xsl:choose>
+		        		
+		        	</xsl:when>
+		        	<xsl:otherwise>
+		        		
+		        		
+		        	</xsl:otherwise>
+		        </xsl:choose>
+		        
 	        </xsl:for-each>
 	        
         </div>

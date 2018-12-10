@@ -11,6 +11,10 @@
 	    		"title":"删除后跳转地址"
 	    	}
 	    ]
+	  },{
+	  	"name":"user-apply",
+	  	"selector":"my",
+	  	
 	  }
 	]
 }
