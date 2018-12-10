@@ -48,7 +48,7 @@ define(['oxjs'],function(OXJS){
                             }
                         ],
 
-                        $deleter:'default'
+                        $inserter:'default'
                     }
                 },function(r){
                     var r=r && r[0];
