@@ -16,8 +16,8 @@ define(['oxjs'],function(OXJS){
     					OXJS.toast('[删除失败]'+r.error)
     				}else{
     					OXJS.toast('操作成功！')
-    					if(r && r.LINK){
-    						location.href=r.LINK.list;
+    					if(r && r.body && r.body.LINK){
+    						location.href=r.body.LINK.list;
     					}
     				}
     			})
