@@ -3,16 +3,15 @@
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-meeting-info" ox-mod="meeting-info">
         	<xsl:variable name="login_uid" select="login/uid"/>
-        	<xsl:variable name="applylist" select="data/user-apply/i"/>
+        	<xsl:variable name="detail" select="data/user-event/i[1]"/>
+        	<xsl:variable name="apply" select="$detail/user-apply/i[1]"/>
         	
 
-        	<xsl:if test="count(data/user-event/i) = 0">
-        		<div class="nodata">暂无数据</div>
+        	<xsl:if test="count($detail) = 0">
+        		<div class="nodata">无数据</div>
         	</xsl:if>
 
-        	<xsl:for-each select="data/user-event/i[1]">
-        		<xsl:variable name="_id" select="_id"/>
-        		<xsl:variable name="apply" select="$applylist[target = $_id ]"/>
+        	<xsl:for-each select="$detail">
 	        	<section>
 		        	
 		            <table>
@@ -55,7 +54,7 @@
 			        
 	            </section>
 	            <section>
-		            <h4 class="section-title">聚会内容</h4>
+		            <h4 class="section-title">活动内容</h4>
 		            <div>
 		            	<xsl:value-of select="content" disable-output-escaping="yes" />
 		            </div>
@@ -69,22 +68,21 @@
 		        <xsl:choose>
 		        	<xsl:when test="uid = $login_uid">
 		        		<section class="center">
-				        	<button class="bt-del J_del" data-id="{_id}">删除聚会</button>
+				        	<button class="bt-del J_del" data-id="{_id}">删除活动</button>
 				        </section>
 		        	</xsl:when>
 		        	<xsl:when test="$login_uid !=''">
 		        		<xsl:choose>
 				        	
-				        	<xsl:when test="$apply ">
+				        	<xsl:when test="$apply">
 				        		<section class="center">
 						        	<button class="bt-cancel J_cancel" data-id="{$apply/_id}">取消参加</button>
 						        </section>
 				        	</xsl:when>
 				        	<xsl:otherwise>
 				        		<section class="center">
-						        	<button class="bt-apply J_apply" data-title="{title}" data-id="{_id}">参加聚会</button>
+						        	<button class="bt-apply J_apply" data-title="{title}" data-id="{_id}">参加活动</button>
 						        </section>
-				        		
 				        	</xsl:otherwise>
 				        </xsl:choose>
 		        		

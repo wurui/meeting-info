@@ -4,7 +4,7 @@ define(['oxjs'],function(OXJS){
     	$('.J_del',$mod).on('click',function(e){
 
     		var _id=this.getAttribute('data-id');
-    		OXJS.confirm('确认要删除该聚会?',function(ok){
+    		OXJS.confirm('确认要删除该活动?',function(ok){
                 if(ok){
                     $mod.OXDelete({
                         'user-event':{
@@ -12,14 +12,13 @@ define(['oxjs'],function(OXJS){
                             $deleter:'default'
                         }
                     },function(r){
-                        var r=r && r[0];
+                        var result=r && r['user-event']
                         if(r.error){
                             OXJS.toast('[删除失败]'+r.error)
                         }else{
                             OXJS.toast('操作成功！')
-                            if(r && r.body && r.body.LINK){
-                                location.href=r.body.LINK.list;
-                            }
+                            $mod.OXRefresh();
+
                         }
                     })
 
@@ -31,27 +30,26 @@ define(['oxjs'],function(OXJS){
         $('.J_apply',$mod).on('click',function(e){
 
             var _id=this.getAttribute('data-id'),
-            title=this.getAttribute('data-title');
-            var txt=window.prompt('如何称呼您?');
-            if(!txt){
-                return false
-            }
+                title=this.getAttribute('data-title'),
+                txt=window.prompt('请备注个人信息');
+           
             $mod.OXPost({
                     'user-apply':{
                         
                         target:_id,
                         subject:title,
+                        content:txt,/*
                         file:[
                             {
                                 "name":"名字",
                                 "value":txt
                             }
-                        ],
+                        ],*/
 
                         $inserter:'default'
                     }
                 },function(r){
-                    var r=r && r[0];
+                    var result=r && r['user-apply']
                     if(r.error){
                         OXJS.toast('[操作失败]'+r.error)
                     }else{
@@ -65,7 +63,7 @@ define(['oxjs'],function(OXJS){
         $('.J_cancel',$mod).on('click',function(e){
 
             var _id=this.getAttribute('data-id');
-            OXJS.confirm('确认要取消参加该聚会?',function(ok){
+            OXJS.confirm('确认要取消参加该活动?',function(ok){
                 if(!ok){
                     return false;
                 }

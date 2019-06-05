@@ -1,20 +1,16 @@
 {
-  "RULE_VERSION":"20180724",
+  "RULE_VERSION":"20190428",
   "name": "meeting-info",
   "apiDependencies": [
 	  {
 	    "name": "user-event",
 	    "selector":"_id",
-	    "LINK":[
-	    	{
-	    		"name":"list",
-	    		"title":"删除后跳转地址"
-	    	}
-	    ]
-	  },{
-	  	"name":"user-apply",
-	  	"selector":"my"
-
+	    "join":{
+		  	"name":"user-apply",
+		  	"selector":"my",
+		  	"localkey":"_id",
+		  	"foreignkey":"target"
+		  }
 	  }
 	]
 }

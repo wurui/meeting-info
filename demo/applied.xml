@@ -35,12 +35,13 @@
                 </starttime>
                 <endtime>1544450400000</endtime>
                 <organizer>Rio</organizer>
+                <user-apply>
+                    <i>
+                        <target>123</target>
+                    </i>
+                </user-apply>
             </i>
         </user-event>
-        <user-apply>
-            <i>
-                <target>123</target>
-            </i>
-        </user-apply>
+        
     </data>
 </root>
