@@ -1,6 +1,7 @@
 define(['oxjs'],function(OXJS){
   return {
     init:function($mod){
+        /*
     	$('.J_del',$mod).on('click',function(e){
 
     		var _id=this.getAttribute('data-id');
@@ -25,7 +26,7 @@ define(['oxjs'],function(OXJS){
                 }
     		})
 
-    	});
+    	});*/
 
         $('.J_apply',$mod).on('click',function(e){
 
@@ -73,7 +74,7 @@ define(['oxjs'],function(OXJS){
                         $deleter:'default'
                     }
                 },function(r){
-                    var r=r && r[0];
+                    var result=r && r['user-apply']
                     if(r.error){
                         OXJS.toast('[操作失败]'+r.error)
                     }else{

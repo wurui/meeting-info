@@ -66,6 +66,19 @@
 		            </div>
 		        </section>
 		        <xsl:choose>
+				        	
+				        	<xsl:when test="$apply">
+				        		<section class="center">
+						        	<button class="bt-cancel J_cancel" data-id="{$apply/_id}">取消参加</button>
+						        </section>
+				        	</xsl:when>
+				        	<xsl:otherwise>
+				        		<section class="center">
+						        	<button class="bt-apply J_apply" data-title="{title}" data-id="{_id}">参加活动</button>
+						        </section>
+				        	</xsl:otherwise>
+				        </xsl:choose><!--
+		        <xsl:choose>
 		        	<xsl:when test="uid = $login_uid">
 		        		<section class="center">
 				        	<button class="bt-del J_del" data-id="{_id}">删除活动</button>
@@ -91,7 +104,7 @@
 		        		
 		        		
 		        	</xsl:otherwise>
-		        </xsl:choose>
+		        </xsl:choose>-->
 		        
 	        </xsl:for-each>
 	        
