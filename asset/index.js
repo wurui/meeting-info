@@ -32,11 +32,12 @@ define(['oxjs'],function(OXJS){
 
             var _id=this.getAttribute('data-id'),
                 title=this.getAttribute('data-title'),
+                owner=this.getAttribute('data-owner'),
                 txt=window.prompt('请备注个人信息');
            
             $mod.OXPost({
                     'user-apply':{
-                        
+                        owner:owner,
                         target:_id,
                         subject:title,
                         content:txt,/*
