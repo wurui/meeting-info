@@ -67,17 +67,27 @@
 		        </section>
 		        <xsl:choose>
 				        	
-				        	<xsl:when test="$apply">
-				        		<section class="center">
-						        	<button class="bt-cancel J_cancel" data-id="{$apply/_id}">取消参加</button>
-						        </section>
-				        	</xsl:when>
-				        	<xsl:otherwise>
-				        		<section class="center">
-						        	<button class="bt-apply J_apply" data-title="{title}"  data-owner="{uid}" data-id="{_id}">参加活动</button>
-						        </section>
-				        	</xsl:otherwise>
-				        </xsl:choose><!--
+		        	<xsl:when test="$apply/status = 'new' ">
+		        		<section class="center">
+				        	<button class="bt-cancel J_cancel" data-id="{$apply/_id}">取消参加</button>
+				        </section>
+		        	</xsl:when>
+		        	<xsl:when test="$apply/status = 'approved' ">
+		        		<section class="center">
+				        	<b style="color:#060">申请已被确认</b>
+				        </section>
+		        	</xsl:when>
+		        	<xsl:when test="$apply/status = 'refused' ">
+		        		<section class="center">
+				        	<b style="color:#f10">申请已被拒绝</b>
+				        </section>
+		        	</xsl:when>
+		        	<xsl:otherwise>
+		        		<section class="center">
+				        	<button class="bt-apply J_apply" data-title="{title}"  data-owner="{uid}" data-id="{_id}">参加活动</button>
+				        </section>
+		        	</xsl:otherwise>
+		        </xsl:choose><!--
 		        <xsl:choose>
 		        	<xsl:when test="uid = $login_uid">
 		        		<section class="center">

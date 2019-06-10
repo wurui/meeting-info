@@ -37,6 +37,7 @@
                 <organizer>Rio</organizer>
                 <user-apply>
                     <i>
+                        <status>new</status>
                         <target>123</target>
                     </i>
                 </user-apply>
