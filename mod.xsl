@@ -74,7 +74,7 @@
 				        	</xsl:when>
 				        	<xsl:otherwise>
 				        		<section class="center">
-						        	<button class="bt-apply J_apply" data-title="{title}"  data-owner="{owner}" data-id="{_id}">参加活动</button>
+						        	<button class="bt-apply J_apply" data-title="{title}"  data-owner="{uid}" data-id="{_id}">参加活动</button>
 						        </section>
 				        	</xsl:otherwise>
 				        </xsl:choose><!--
