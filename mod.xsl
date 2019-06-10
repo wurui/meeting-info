@@ -67,17 +67,17 @@
 		        </section>
 		        <xsl:choose>
 				        	
-		        	<xsl:when test="$apply/status = 'new' ">
+		        	<xsl:when test="$apply/result = 'new' ">
 		        		<section class="center">
 				        	<button class="bt-cancel J_cancel" data-id="{$apply/_id}">取消参加</button>
 				        </section>
 		        	</xsl:when>
-		        	<xsl:when test="$apply/status = 'approved' ">
+		        	<xsl:when test="$apply/result = 'approved' ">
 		        		<section class="center">
 				        	<b style="color:#060">申请已被确认</b>
 				        </section>
 		        	</xsl:when>
-		        	<xsl:when test="$apply/status = 'refused' ">
+		        	<xsl:when test="$apply/result = 'refused' ">
 		        		<section class="center">
 				        	<b style="color:#f10">申请已被拒绝</b>
 				        </section>
